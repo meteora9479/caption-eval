@@ -30,8 +30,14 @@ class CocoResFormat:
       for line in opfd:
         count +=1
         id_sent = line.strip().split('\t')
-        if len(id_sent)>2:
+	if len(id_sent)>2:
           id_sent = id_sent[-2:]
+        
+        print(len(id_sent))
+        if len(id_sent)==1:
+          id_sent = id_sent[-1:]
+          print(id_sent)
+
         assert len(id_sent) == 2
         sent = id_sent[1].decode('ascii', 'ignore')
 
